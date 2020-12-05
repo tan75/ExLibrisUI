@@ -5,7 +5,7 @@ import Book from './Book/Book';
 export default function App() {
   return (
     <div className="App">
-      <Book />
+      <Book title="Javascript part1" />
       <h1>Hello from React</h1>
     </div>
   );

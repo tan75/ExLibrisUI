@@ -1,11 +1,17 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Book = () => {
+const Book = (props) => {
+  const { title } = props;
   return (
     <div>
-      <h1>Book1</h1>
+      <p>{title}</p>
     </div>
   );
+};
+
+Book.propTypes = {
+  title: PropTypes.string.isRequired,
 };
 
 export default Book;
