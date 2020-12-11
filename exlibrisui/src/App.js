@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Container from 'react-bootstrap/Container';
+import Jumbotron from 'react-bootstrap/Jumbotron';
+import Button from 'react-bootstrap/Button';
 import Books from './components/Books';
 
 class App extends Component {
@@ -20,13 +23,19 @@ class App extends Component {
   render() {
     const { books } = this.state;
     return (
-      <div>
-        <Books
-          books={books.map((book) => (
-            <div>{book.title}</div>
-          ))}
-        />
-      </div>
+      <Container className="p-3">
+        <Jumbotron>
+          <h1 className="header">Welcome to ExLibris</h1>
+          <div>
+            <Books
+              books={books.map((book) => (
+                <div>{book.title}</div>
+              ))}
+            />
+            <Button variant="primary">Learn more</Button>
+          </div>
+        </Jumbotron>
+      </Container>
     );
   }
 }

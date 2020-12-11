@@ -5,7 +5,7 @@ class BookItem extends Component {
   render() {
     const { book } = this.props;
     return (
-      <div className="bookItem">
+      <div>
         <p>{book}</p>
       </div>
     );
