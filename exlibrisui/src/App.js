@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Jumbotron from 'react-bootstrap/Jumbotron';
-import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 import Books from './components/Books';
 
 class App extends Component {
@@ -26,14 +26,26 @@ class App extends Component {
       <Container className="p-3">
         <Jumbotron>
           <h1 className="header">Welcome to ExLibris</h1>
-          <div>
-            <Books
-              books={books.map((book) => (
-                <div>{book.title}</div>
-              ))}
-            />
-            <Button variant="primary">Learn more</Button>
-          </div>
+          <Card style={{ width: '18rem' }}>
+            <Card.Body>
+              <Card.Title>
+                <Books
+                  books={books.map((book) => (
+                    <div>{book.title}</div>
+                  ))}
+                />
+              </Card.Title>
+              <Card.Subtitle className="mb-2 text-muted">
+                Card Subtitle
+              </Card.Subtitle>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the cards content.
+              </Card.Text>
+              <Card.Link href="#">Card Link</Card.Link>
+              <Card.Link href="#">Another Link</Card.Link>
+            </Card.Body>
+          </Card>
         </Jumbotron>
       </Container>
     );
