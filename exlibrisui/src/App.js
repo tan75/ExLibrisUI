@@ -58,10 +58,6 @@ class App extends Component {
     ],
   };
 
-  addToReport = (e) => {
-    console.log(this.props);
-  };
-
   render() {
     const { books } = this.state;
     return (
@@ -81,9 +77,7 @@ class App extends Component {
                         &ensp;pages
                       </Card.Subtitle>
                       <Card.Text>{book.description}</Card.Text>
-                      <Button variant="primary" onClick={this.addToReport}>
-                        Add To Report
-                      </Button>
+                      <Button variant="primary">Add To Report</Button>
                     </Card.Body>
                   </Card>
                 </Col>
