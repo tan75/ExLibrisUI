@@ -5,8 +5,8 @@ class BookItem extends Component {
   render() {
     const { book } = this.props;
     return (
-      <div className="bookItem">
-        <p>{book}</p>
+      <div>
+        <p>Hello</p>
       </div>
     );
   }
