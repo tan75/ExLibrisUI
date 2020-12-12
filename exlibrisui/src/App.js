@@ -4,6 +4,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron';
 import Card from 'react-bootstrap/Card';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 import Books from './components/Books';
 
 class App extends Component {
@@ -13,6 +14,8 @@ class App extends Component {
         id: 1,
         title: 'JavaScript Good Parts',
         pages: 10002,
+        imageUrl:
+          'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
       },
@@ -66,6 +69,7 @@ class App extends Component {
               books={books.map((book) => (
                 <Col>
                   <Card style={{ width: '18rem' }}>
+                    <Card.Img variant="top" src={book.imageUrl} />
                     <Card.Body>
                       <Card.Title>{book.title}</Card.Title>
                       <Card.Subtitle className="mb-2 text-muted">
@@ -73,8 +77,7 @@ class App extends Component {
                         &ensp;pages
                       </Card.Subtitle>
                       <Card.Text>{book.description}</Card.Text>
-                      <Card.Link href="#">Card Link</Card.Link>
-                      <Card.Link href="#">Another Link</Card.Link>
+                      <Button variant="primary">Add To Report</Button>
                     </Card.Body>
                   </Card>
                 </Col>
