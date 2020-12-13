@@ -12,7 +12,8 @@ class App extends Component {
         imageUrl:
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
+        addedToReport: 'N',
       },
       {
         id: 2,
@@ -21,7 +22,8 @@ class App extends Component {
         imageUrl:
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
+        addedToReport: 'N',
       },
       {
         id: 3,
@@ -30,7 +32,8 @@ class App extends Component {
         imageUrl:
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
+        addedToReport: 'N',
       },
       {
         id: 4,
@@ -39,7 +42,8 @@ class App extends Component {
         imageUrl:
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
+        addedToReport: 'N',
       },
       {
         id: 5,
@@ -48,7 +52,8 @@ class App extends Component {
         imageUrl:
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. Interdum et malesuada fames ac ante ipsum primis in faucibus.',
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
+        addedToReport: 'N',
       },
     ],
   };
