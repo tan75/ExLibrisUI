@@ -4,13 +4,16 @@ import BookItem from './BookItem';
 
 class Books extends Component {
   render() {
-    const { books } = this.props;
-    return books.map((book) => <BookItem key={book.id} book={book} />);
+    const { books, addToReport } = this.props;
+    return books.map((book) => (
+      <BookItem key={book.id} book={book} addToReport={addToReport} />
+    ));
   }
 }
 
 Books.propTypes = {
   books: PropTypes.array.isRequired,
+  addToReport: PropTypes.func.isRequired,
 };
 
 export default Books;

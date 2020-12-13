@@ -53,6 +53,15 @@ class App extends Component {
     ],
   };
 
+  constructor(props) {
+    super(props);
+    this.addToReport = this.addToReport.bind(this);
+  }
+
+  addToReport = (id) => {
+    console.log(id);
+  };
+
   render() {
     const { books } = this.state;
     return (
@@ -60,7 +69,7 @@ class App extends Component {
         <h1 className="header">Welcome to ExLibris</h1>
         <Jumbotron>
           <Row>
-            <Books books={books} />
+            <Books books={books} addToReport={this.addToReport} />
           </Row>
         </Jumbotron>
       </Container>

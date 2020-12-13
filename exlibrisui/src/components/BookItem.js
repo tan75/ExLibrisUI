@@ -4,22 +4,27 @@ import PropTypes from 'prop-types';
 
 class BookItem extends Component {
   render() {
-    const { book } = this.props;
+    const { book, addToReport } = this.props;
+    const { id, pages, title, imageUrl, description } = book;
     return (
       <Col>
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={book.imageUrl} />
+          <Card.Img variant="top" src={imageUrl} />
           <Card.Body>
-            <Card.Title>{book.title}</Card.Title>
+            <Card.Title>{title}</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
-              {book.pages}
+              {pages}
               &ensp;pages
             </Card.Subtitle>
-            <Card.Text>{book.description}</Card.Text>
-            <Button variant="primary" onClick={this.addToReport}>
+            <Card.Text>{description}</Card.Text>
+            <Button
+              variant="primary"
+              type="submit"
+              href="#"
+              onClick={addToReport.bind(this, id)}
+            >
               Add To Report
             </Button>
-            <p>{book.description}</p>
           </Card.Body>
         </Card>
       </Col>
@@ -29,6 +34,7 @@ class BookItem extends Component {
 
 BookItem.propTypes = {
   book: PropTypes.object.isRequired,
+  addToReport: PropTypes.func.isRequired,
 };
 
 export default BookItem;
