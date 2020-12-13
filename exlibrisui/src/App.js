@@ -13,7 +13,7 @@ class App extends Component {
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
-        addedToReport: 'N',
+        addedToReport: true,
       },
       {
         id: 2,
@@ -23,7 +23,7 @@ class App extends Component {
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
-        addedToReport: 'N',
+        addedToReport: false,
       },
       {
         id: 3,
@@ -33,7 +33,7 @@ class App extends Component {
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
-        addedToReport: 'N',
+        addedToReport: false,
       },
       {
         id: 4,
@@ -43,7 +43,7 @@ class App extends Component {
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
-        addedToReport: 'N',
+        addedToReport: false,
       },
       {
         id: 5,
@@ -53,18 +53,20 @@ class App extends Component {
           'https://assets.entrepreneur.com/content/16x9/822/20150115183825-books-reading.jpeg',
         description:
           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla tortor diam, volutpat vitae iaculis vitae, scelerisque pulvinar mauris. ',
-        addedToReport: 'N',
+        addedToReport: false,
       },
     ],
   };
 
-  constructor(props) {
-    super(props);
-    this.addToReport = this.addToReport.bind(this);
-  }
-
   addToReport = (id) => {
-    console.log(id);
+    this.setState({
+      books: this.state.books.map((book) => {
+        if (book.id === id) {
+          book.addedToReport = !book.addedToReport;
+        }
+        return book;
+      }),
+    });
   };
 
   render() {
