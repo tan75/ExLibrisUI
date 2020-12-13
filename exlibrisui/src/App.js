@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Container, Jumbotron, Row } from 'react-bootstrap';
 import Books from './components/Books';
 
 class App extends Component {
@@ -55,9 +56,14 @@ class App extends Component {
   render() {
     const { books } = this.state;
     return (
-      <div>
-        <Books books={books} />
-      </div>
+      <Container className="p-3">
+        <h1 className="header">Welcome to ExLibris</h1>
+        <Jumbotron>
+          <Row>
+            <Books books={books} />
+          </Row>
+        </Jumbotron>
+      </Container>
     );
   }
 }
