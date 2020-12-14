@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
-import Books from './components/Books';
+import Books from './components/books/Books';
 
 class App extends Component {
   state = {
