@@ -69,6 +69,12 @@ class App extends Component {
     });
   };
 
+  deleteBook = (id) => {
+    this.setState({
+      books: [...this.state.books.filter((book) => book.id !== id)],
+    });
+  };
+
   render() {
     const { books } = this.state;
     return (
@@ -76,7 +82,11 @@ class App extends Component {
         <h1 className="header">Welcome to ExLibris</h1>
         <Jumbotron>
           <Row>
-            <Books books={books} addToReport={this.addToReport} />
+            <Books
+              books={books}
+              addToReport={this.addToReport}
+              deleteBook={this.deleteBook}
+            />
           </Row>
         </Jumbotron>
       </Container>

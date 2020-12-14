@@ -4,9 +4,14 @@ import BookItem from './BookItem';
 
 class Books extends Component {
   render() {
-    const { books, addToReport } = this.props;
+    const { books, addToReport, deleteBook } = this.props;
     return books.map((book) => (
-      <BookItem key={book.id} book={book} addToReport={addToReport} />
+      <BookItem
+        key={book.id}
+        book={book}
+        addToReport={addToReport}
+        deleteBook={deleteBook}
+      />
     ));
   }
 }
@@ -14,6 +19,7 @@ class Books extends Component {
 Books.propTypes = {
   books: PropTypes.array.isRequired,
   addToReport: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
 export default Books;

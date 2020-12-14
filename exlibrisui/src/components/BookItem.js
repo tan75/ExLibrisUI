@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class BookItem extends Component {
   render() {
-    const { book, addToReport } = this.props;
+    const { book, addToReport, deleteBook } = this.props;
     const { id, pages, title, imageUrl, description } = book;
     return (
       <Col>
@@ -25,6 +25,14 @@ class BookItem extends Component {
             >
               Add To Report
             </Button>
+            &nbsp;
+            <Button
+              variant="danger"
+              type="submit"
+              onClick={deleteBook.bind(this, id)}
+            >
+              Delete
+            </Button>
           </Card.Body>
         </Card>
       </Col>
@@ -35,6 +43,7 @@ class BookItem extends Component {
 BookItem.propTypes = {
   book: PropTypes.object.isRequired,
   addToReport: PropTypes.func.isRequired,
+  deleteBook: PropTypes.func.isRequired,
 };
 
 export default BookItem;
