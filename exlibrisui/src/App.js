@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
+import AddBook from './components/books/addBook';
 
 class App extends Component {
   state = {
@@ -82,6 +83,7 @@ class App extends Component {
       <Container className="p-3">
         <Header />
         <Jumbotron>
+          <AddBook />
           <Row>
             <Books
               books={books}
