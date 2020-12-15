@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
-export default class addBook extends Component {
+export default class AddBook extends Component {
   state = {
     title: '',
   };
@@ -10,9 +11,15 @@ export default class addBook extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    this.props.addBook(this.state.title);
+    this.setState({ title: '' });
+  };
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.onSubmit}>
         <Form.Row>
           <Form.Group controlId="formGridBookDetails">
             <Form.Label>Add Book</Form.Label>
@@ -32,3 +39,7 @@ export default class addBook extends Component {
     );
   }
 }
+
+AddBook.propTypes = {
+  addBook: PropTypes.func.isRequired,
+};

@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
+import { v4 as uuid } from 'uuid';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
-import AddBook from './components/books/addBook';
+import AddBook from './components/books/AddBook';
 
 class App extends Component {
   state = {
     books: [
       {
-        id: 1,
+        id: uuid(),
         title: 'JavaScript Good Parts',
         pages: 10002,
         imageUrl:
@@ -18,7 +19,7 @@ class App extends Component {
         addedToReport: true,
       },
       {
-        id: 2,
+        id: uuid(),
         title: 'JavaScript Bad Parts',
         pages: 10,
         imageUrl:
@@ -28,7 +29,7 @@ class App extends Component {
         addedToReport: false,
       },
       {
-        id: 3,
+        id: uuid(),
         title: 'Python Good Parts',
         pages: 10002,
         imageUrl:
@@ -38,7 +39,7 @@ class App extends Component {
         addedToReport: false,
       },
       {
-        id: 4,
+        id: uuid(),
         title: 'Python Bad Parts',
         pages: 10,
         imageUrl:
@@ -48,7 +49,7 @@ class App extends Component {
         addedToReport: false,
       },
       {
-        id: 5,
+        id: uuid(),
         title: 'Java Good Parts',
         pages: 10002,
         imageUrl:
@@ -77,13 +78,25 @@ class App extends Component {
     });
   };
 
+  addBook = (title) => {
+    const newBook = {
+      id: 100,
+      title,
+      pages: 1000,
+      imageUrl: 'ttt',
+      description: 'Description',
+      addedToReport: false,
+    };
+    this.setState({ books: [...this.state.books, newBook] });
+  };
+
   render() {
     const { books } = this.state;
     return (
       <Container className="p-3">
         <Header />
         <Jumbotron>
-          <AddBook />
+          <AddBook addBook={this.addBook} />
           <Row>
             <Books
               books={books}
