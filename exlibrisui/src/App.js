@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
 import { v4 as uuid } from 'uuid';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AddBook from './components/books/AddBook';
+import About from './components/About';
 
 class App extends Component {
   state = {
@@ -93,19 +95,30 @@ class App extends Component {
   render() {
     const { books } = this.state;
     return (
-      <Container className="p-3">
-        <Header />
-        <Jumbotron>
-          <AddBook addBook={this.addBook} />
-          <Row>
-            <Books
-              books={books}
-              addToReport={this.addToReport}
-              deleteBook={this.deleteBook}
-            />
-          </Row>
-        </Jumbotron>
-      </Container>
+      <Router>
+        <Container className="p-3">
+          <Header />
+          <Route
+            exact
+            path="/"
+            render={(props) => (
+              <React.Fragment>
+                <Jumbotron>
+                  <AddBook addBook={this.addBook} />
+                  <Row>
+                    <Books
+                      books={books}
+                      addToReport={this.addToReport}
+                      deleteBook={this.deleteBook}
+                    />
+                  </Row>
+                </Jumbotron>
+              </React.Fragment>
+            )}
+          />
+          <Route path="/about" component={About} />
+        </Container>
+      </Router>
     );
   }
 }
