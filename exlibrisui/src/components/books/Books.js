@@ -5,9 +5,10 @@ import BookItem from './BookItem';
 class Books extends Component {
   render() {
     const { books, addToReport, deleteBook } = this.props;
+    console.log(books);
     return books.map((book) => (
       <BookItem
-        key={book.id}
+        key={book._id}
         book={book}
         addToReport={addToReport}
         deleteBook={deleteBook}
