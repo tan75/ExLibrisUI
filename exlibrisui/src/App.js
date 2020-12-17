@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
-import { v4 as uuid } from 'uuid';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/layout/Header';
