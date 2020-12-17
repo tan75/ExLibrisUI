@@ -15,7 +15,6 @@ class App extends Component {
   componentDidMount() {
     axios.get('http://localhost:8000/books/').then((res) => {
       this.setState({ books: res.data.books });
-      // console.log(res.data.books);
     });
   }
 
