@@ -5,7 +5,8 @@ import axios from 'axios';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AddBook from './components/books/AddBook';
-import About from './components/About';
+import AboutPage from './pages/About';
+import AddBookPage from './pages/AddBook';
 
 class App extends Component {
   state = {
@@ -71,7 +72,8 @@ class App extends Component {
               </React.Fragment>
             )}
           />
-          <Route path="/about" component={About} />
+          <Route path="/about" component={AboutPage} />
+          <Route path="/add-book" component={AddBookPage} />
         </Container>
       </Router>
     );

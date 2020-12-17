@@ -14,6 +14,7 @@ export default function Header() {
               <Nav.Link href="#link">Report</Nav.Link>
               <Nav.Link href="#link">Admin Books</Nav.Link>
               <Nav.Link href="/about">About</Nav.Link>
+              <Nav.Link href="/add-book">Add Book</Nav.Link>
             </Nav>
             <Form inline>
               <FormControl
