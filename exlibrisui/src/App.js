@@ -64,12 +64,6 @@ class App extends Component {
       });
   };
 
-  getHiddenStyle = () => {
-    return {
-      display: 'none',
-    };
-  };
-
   render() {
     const { books } = this.state;
     console.log('app render', books);
@@ -77,9 +71,6 @@ class App extends Component {
       <Router>
         <Container className="p-3">
           <Header />
-          <div style={this.getHiddenStyle()}>
-            <AddBookPage books={books} addBook={this.addBook} />
-          </div>
           <Route
             exact
             path="/"
@@ -99,7 +90,12 @@ class App extends Component {
             )}
           />
           <Route path="/about" component={AboutPage} />
-          <Route path="/add-book" component={AddBookPage} />
+          <Route
+            path="/add-book"
+            render={(props) => (
+              <AddBookPage {...props} books={books} addBook={this.addBook} />
+            )}
+          />
         </Container>
       </Router>
     );
