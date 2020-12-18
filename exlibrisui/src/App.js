@@ -60,7 +60,7 @@ class App extends Component {
       })
       // .then((res) => this.setState({ books: [...this.state.books, res.data] }));
       .then((res) => {
-        console.log(res.data);
+        console.log('from App.js ', res.data);
       });
   };
 
