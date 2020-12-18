@@ -33,12 +33,11 @@ export default class AddBook extends Component {
       // );
       .then((res) => {
         console.log(res.data);
-        // console.log(this.props.books);
+        // console.log(this.props);
       });
   };
 
-  render(props, state) {
-    console.log('props', props); // Returns undefined
+  render() {
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.Row>

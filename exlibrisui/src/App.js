@@ -15,6 +15,7 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:8000/books/').then((res) => {
+      console.log('loading->', res.data);
       this.setState({ books: res.data.books });
     });
   }
@@ -71,11 +72,14 @@ class App extends Component {
 
   render() {
     const { books } = this.state;
-    console.log(books);
+    console.log('app render', books);
     return (
       <Router>
         <Container className="p-3">
           <Header />
+          <div style={this.getHiddenStyle()}>
+            <AddBookPage books={books} addBook={this.addBook} />
+          </div>
           <Route
             exact
             path="/"
@@ -89,9 +93,6 @@ class App extends Component {
                       addToReport={this.addToReport}
                       deleteBook={this.deleteBook}
                     />
-                    <div style={this.getHiddenStyle()}>
-                      <AddBookPage books={books} addBook={this.addBook} />
-                    </div>
                   </Row>
                 </Jumbotron>
               </React.Fragment>
