@@ -36,20 +36,42 @@ class App extends Component {
     });
   };
 
+  // addBook = (title) => {
+  //   const newBook = {
+  //     id: 100,
+  //     title,
+  //     pages: 1000,
+  //     imageUrl: 'ttt',
+  //     description: 'Description',
+  //     addedToReport: false,
+  //   };
+  //   this.setState({ books: [...this.state.books, newBook] });
+  // };
+
   addBook = (title) => {
-    const newBook = {
-      id: 100,
-      title,
-      pages: 1000,
-      imageUrl: 'ttt',
-      description: 'Description',
-      addedToReport: false,
+    axios
+      .post('http://localhost:8000/admin/add-book/', {
+        title: 'REST API',
+        imageUrl:
+          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.hellogiggles.com%2Fuploads%2F2016%2F12%2F18043538%2Fshutterstock_91553819.jpg&f=1&nofb=1',
+        pages: '333',
+        description: '333 desc',
+      })
+      // .then((res) => this.setState({ books: [...this.state.books, res.data] }));
+      .then((res) => {
+        console.log(res.data);
+      });
+  };
+
+  getHiddenStyle = () => {
+    return {
+      display: 'none',
     };
-    this.setState({ books: [...this.state.books, newBook] });
   };
 
   render() {
     const { books } = this.state;
+    console.log(books);
     return (
       <Router>
         <Container className="p-3">
@@ -67,6 +89,9 @@ class App extends Component {
                       addToReport={this.addToReport}
                       deleteBook={this.deleteBook}
                     />
+                    <div style={this.getHiddenStyle()}>
+                      <AddBookPage books={books} addBook={this.addBook} />
+                    </div>
                   </Row>
                 </Jumbotron>
               </React.Fragment>
