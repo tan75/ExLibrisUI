@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
-import AddBook from './components/books/AddBook';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
 
@@ -60,7 +59,6 @@ class App extends Component {
             render={(props) => (
               <React.Fragment>
                 <Jumbotron>
-                  <AddBook addBook={this.addBook} />
                   <Row>
                     <Books
                       books={books}
