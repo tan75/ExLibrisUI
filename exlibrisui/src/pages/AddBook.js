@@ -18,6 +18,7 @@ export default class AddBook extends Component {
   };
 
   render() {
+    console.log("AddBook page");
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.Row>

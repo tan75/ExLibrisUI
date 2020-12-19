@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Container, Jumbotron, Row } from 'react-bootstrap';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import Switch from 'react-bootstrap/esm/Switch';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
+import PageNotFoundPage from './pages/PageNotFound';
 
 class App extends Component {
   state = {
@@ -70,13 +72,17 @@ class App extends Component {
               </React.Fragment>
             )}
           />
-          <Route path="/about" component={AboutPage} />
-          <Route
-            path="/add-book"
-            render={(props) => (
-              <AddBookPage {...props} books={books} addBook={this.addBook} />
-            )}
-          />
+          <Switch>
+            <Route exact path="/about" component={AboutPage} />
+            <Route
+              exact
+              path="/add-book"
+              render={(props) => (
+                <AddBookPage {...props} books={books} addBook={this.addBook} />
+              )}
+            />
+            <Route component={PageNotFoundPage} />
+          </Switch>
         </Container>
       </Router>
     );
