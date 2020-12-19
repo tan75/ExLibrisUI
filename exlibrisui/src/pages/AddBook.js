@@ -41,6 +41,5 @@ export default class AddBook extends Component {
 }
 
 AddBook.propTypes = {
-  // books: PropTypes.object.isRequired,
   addBook: PropTypes.func.isRequired,
 };
