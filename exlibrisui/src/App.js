@@ -15,7 +15,6 @@ class App extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:8000/books/').then((res) => {
-      console.log('loading->', res.data);
       this.setState({ books: res.data.books });
     });
   }
@@ -37,18 +36,6 @@ class App extends Component {
     });
   };
 
-  // addBook = (title) => {
-  //   const newBook = {
-  //     id: 100,
-  //     title,
-  //     pages: 1000,
-  //     imageUrl: 'ttt',
-  //     description: 'Description',
-  //     addedToReport: false,
-  //   };
-  //   this.setState({ books: [...this.state.books, newBook] });
-  // };
-
   addBook = (title) => {
     axios
       .post('http://localhost:8000/admin/add-book/', {
@@ -59,14 +46,10 @@ class App extends Component {
         description: '333 desc',
       })
       .then((res) => this.setState({ books: [...this.state.books, res.data] }));
-    // .then((res) => {
-    //   console.log('from App.js ', res.data);
-    // });
   };
 
   render() {
     const { books } = this.state;
-    console.log('app render', books);
     return (
       <Router>
         <Container className="p-3">

@@ -12,14 +12,12 @@ export default class AddBook extends Component {
   };
 
   onSubmit = (e) => {
-    console.log('111');
     e.preventDefault();
     this.props.addBook(this.state.title);
     this.setState({ title: '' });
   };
 
   render() {
-    console.log('Props of AddBook ', this.props);
     return (
       <Form onSubmit={this.onSubmit}>
         <Form.Row>
