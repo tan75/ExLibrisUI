@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import PropTypes from 'prop-types';
-import axios from 'axios';
 
 export default class AddBook extends Component {
   state = {
@@ -13,8 +12,9 @@ export default class AddBook extends Component {
   };
 
   onSubmit = (e) => {
+    console.log('111');
     e.preventDefault();
-    // this.props.addBook(this.state.title);
+    this.props.addBook(this.state.title);
     this.setState({ title: '' });
   };
 
@@ -44,5 +44,5 @@ export default class AddBook extends Component {
 
 AddBook.propTypes = {
   // books: PropTypes.object.isRequired,
-  // addBook: PropTypes.func.isRequired,
+  addBook: PropTypes.func.isRequired,
 };
