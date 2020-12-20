@@ -54,14 +54,14 @@ class App extends Component {
     return (
       <Container className="p-3">
         <Header />
-        <Router>
-          <Switch>
-            <Route
-              exact
-              path="/"
-              render={(props) => (
-                <React.Fragment>
-                  <Jumbotron>
+        <React.Fragment>
+          <Jumbotron>
+            <Router>
+              <Switch>
+                <Route
+                  exact
+                  path="/"
+                  render={(props) => (
                     <Row>
                       <Books
                         books={books}
@@ -69,21 +69,25 @@ class App extends Component {
                         deleteBook={this.deleteBook}
                       />
                     </Row>
-                  </Jumbotron>
-                </React.Fragment>
-              )}
-            />
-            <Route exact path="/about" component={AboutPage} />
-            <Route
-              exact
-              path="/add-book"
-              render={(props) => (
-                <AddBookPage {...props} books={books} addBook={this.addBook} />
-              )}
-            />
-            <Route path="*" component={PageNotFoundPage} />
-          </Switch>
-        </Router>
+                  )}
+                />
+                <Route exact path="/about" component={AboutPage} />
+                <Route
+                  exact
+                  path="/add-book"
+                  render={(props) => (
+                    <AddBookPage
+                      {...props}
+                      books={books}
+                      addBook={this.addBook}
+                    />
+                  )}
+                />
+                <Route path="*" component={PageNotFoundPage} />
+              </Switch>
+            </Router>
+          </Jumbotron>
+        </React.Fragment>
       </Container>
     );
   }
