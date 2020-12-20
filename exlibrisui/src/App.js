@@ -35,12 +35,11 @@ class App extends Component {
     });
   };
 
-  addBook = (title) => {
+  addBook = (title, imageUrl) => {
     axios
       .post('http://localhost:8000/admin/add-book/', {
-        title: 'REST API',
-        imageUrl:
-          'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fimages.hellogiggles.com%2Fuploads%2F2016%2F12%2F18043538%2Fshutterstock_91553819.jpg&f=1&nofb=1',
+        title,
+        imageUrl,
         pages: '4',
         description: '333 desc',
       })

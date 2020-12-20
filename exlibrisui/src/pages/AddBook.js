@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
 export default class AddBook extends Component {
   state = {
     title: '',
+    imageUrl: '',
   };
 
   onChange = (e) => {
@@ -14,16 +15,15 @@ export default class AddBook extends Component {
   onSubmit = (e) => {
     e.preventDefault();
     this.props.addBook(this.state.title);
-    this.setState({ title: '' });
+    this.setState({ title: '', imageUrl: '' });
   };
 
   render() {
-    console.log("AddBook page");
     return (
-      <Form onSubmit={this.onSubmit}>
-        <Form.Row>
-          <Form.Group controlId="formGridBookDetails">
-            <Form.Label>Add Book</Form.Label>
+      <Container fluid>
+        <Form onSubmit={this.onSubmit}>
+          <Form.Group controlId="formBookTitle">
+            <Form.Label>Book Title</Form.Label>
             <Form.Control
               type="text"
               name="title"
@@ -32,11 +32,21 @@ export default class AddBook extends Component {
               onChange={this.onChange}
             />
           </Form.Group>
-        </Form.Row>
-        <Button variant="primary" type="submit" value="Submit">
-          Submit
-        </Button>
-      </Form>
+          <Form.Group controlId="formBookImageUrl">
+            <Form.Label>Image Url</Form.Label>
+            <Form.Control
+              type="url"
+              name="imageUrl"
+              placeholder="Image URL"
+              value={this.state.imageUrl}
+              onChange={this.onChange}
+            />
+          </Form.Group>
+          <Button variant="primary" type="submit" value="Submit">
+            Submit
+          </Button>
+        </Form>
+      </Container>
     );
   }
 }
