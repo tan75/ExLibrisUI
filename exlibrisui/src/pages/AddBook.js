@@ -6,6 +6,8 @@ export default class AddBook extends Component {
   state = {
     title: '',
     imageUrl: '',
+    pages: '',
+    description: '',
   };
 
   onChange = (e) => {
@@ -14,8 +16,8 @@ export default class AddBook extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addBook(this.state.title);
-    this.setState({ title: '', imageUrl: '' });
+    this.props.addBook(this.state.title, this.state.imageUrl, this.state.pages, this.state.description);
+    this.setState({ title: '', imageUrl: '', pages: '', description: '' });
   };
 
   render() {
@@ -42,6 +44,27 @@ export default class AddBook extends Component {
               onChange={this.onChange}
             />
           </Form.Group>
+          <Form.Group controlId="formBookPages">
+            <Form.Label>Pages</Form.Label>
+            <Form.Control
+              type="text"
+              name="pages"
+              placeholder="Number of Pages"
+              value={this.state.pages}
+              onChange={this.onChange}
+            />
+          </Form.Group>
+          <Form.Group controlId="formBookDescription">
+            <Form.Label>Description</Form.Label>
+            <Form.Control
+              type="text"
+              name="description"
+              placeholder="Description"
+              value={this.state.description}
+              onChange={this.onChange}
+            />
+          </Form.Group>
+
           <Button variant="primary" type="submit" value="Submit">
             Submit
           </Button>

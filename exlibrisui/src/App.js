@@ -35,15 +35,20 @@ class App extends Component {
     });
   };
 
-  addBook = (title, imageUrl) => {
+  addBook = (title, imageUrl, pages, description) => {
     axios
       .post('http://localhost:8000/admin/add-book/', {
         title,
         imageUrl,
-        pages: '4',
-        description: '333 desc',
+        pages,
+        description,
       })
-      .then((res) => this.setState({ books: [...this.state.books, res.data] }));
+      .then((res) => {
+        console.log('123 ', res);
+        this.setState({
+          books: [...this.state.books, res.data],
+        });
+      });
   };
 
   render() {
