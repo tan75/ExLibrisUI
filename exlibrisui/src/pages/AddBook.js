@@ -16,7 +16,12 @@ export default class AddBook extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    this.props.addBook(this.state.title, this.state.imageUrl, this.state.pages, this.state.description);
+    this.props.addBook(
+      this.state.title,
+      this.state.imageUrl,
+      this.state.pages,
+      this.state.description
+    );
     this.setState({ title: '', imageUrl: '', pages: '', description: '' });
   };
 

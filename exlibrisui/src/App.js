@@ -13,7 +13,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/books/').then((res) => {
+    axios.get('http://localhost:8000/api/books/').then((res) => {
       this.setState({ books: res.data.books });
     });
   }
@@ -37,14 +37,13 @@ class App extends Component {
 
   addBook = (title, imageUrl, pages, description) => {
     axios
-      .post('http://localhost:8000/admin/add-book/', {
+      .post('http://localhost:8000/api/admin/add-book/', {
         title,
         imageUrl,
         pages,
         description,
       })
       .then((res) => {
-        console.log('123 ', res);
         this.setState({
           books: [...this.state.books, res.data],
         });
