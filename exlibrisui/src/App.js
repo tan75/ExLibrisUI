@@ -7,13 +7,16 @@ import Books from './components/books/Books';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
 
+const ipAddr = `localhost`; // For Dev
+// const ipAddr = `gobananas.work`; // For Prod
+
 class App extends Component {
   state = {
     books: [],
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/books/').then((res) => {
+    axios.get(`http://${ipAddr}:8000/api/books/`).then((res) => {
       this.setState({ books: res.data.books });
     });
   }
@@ -37,7 +40,7 @@ class App extends Component {
 
   addBook = (title, imageUrl, pages, description) => {
     axios
-      .post('http://localhost:8000/api/admin/add-book/', {
+      .post(`http://${ipAddr}:8000/api/admin/add-book/`, {
         title,
         imageUrl,
         pages,
