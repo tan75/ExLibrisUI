@@ -7,8 +7,8 @@ import Books from './components/books/Books';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
 
-const ipAddr = `http://localhost:8000`; // For Dev
-//  const ipAddr = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
+const baseUrl = `http://localhost:8000`; // For Dev
+// const baseUrl = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
 
 class App extends Component {
   state = {
@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   componentDidMount() {
-    axios.get(`${ipAddr}/api/books/`).then((res) => {
+    axios.get(`${baseUrl}/api/books/`).then((res) => {
       this.setState({ books: res.data.books });
     });
   }
@@ -40,7 +40,7 @@ class App extends Component {
 
   addBook = (title, imageUrl, pages, description) => {
     axios
-      .post(`http://${ipAddr}:8000/api/admin/add-book/`, {
+      .post(`http://${baseUrl}:8000/api/admin/add-book/`, {
         title,
         imageUrl,
         pages,
