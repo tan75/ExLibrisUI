@@ -39,8 +39,9 @@ class App extends Component {
   };
 
   addBook = (title, imageUrl, pages, description) => {
+    console.log('777');
     axios
-      .post(`http://${baseUrl}:8000/api/admin/add-book/`, {
+      .post(`${baseUrl}/api/admin/add-book/`, {
         title,
         imageUrl,
         pages,
@@ -50,6 +51,7 @@ class App extends Component {
         this.setState({
           books: [...this.state.books, res.data],
         });
+        console.log('666 books ', this.state.ßbooks);
       });
   };
 
