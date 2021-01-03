@@ -41,6 +41,7 @@
     "no-param-reassign": "off",
     "react/jsx-fragments": "off",
     "no-underscore-dangle": "off",
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-indent": "off"
   }
 }
