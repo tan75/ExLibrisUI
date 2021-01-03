@@ -6,6 +6,7 @@ import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
+import Report from './pages/Report';
 
 const baseUrl = `http://localhost:8000`; // For Dev
 // const baseUrl = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
@@ -85,7 +86,7 @@ class App extends Component {
               <AddBookPage {...props} books={books} addBook={this.addBook} />
             )}
           />
-          <Route exact path="/report" />
+          <Route exact path="/report" render={() => <Report />} />
         </Container>
       </Router>
     );
