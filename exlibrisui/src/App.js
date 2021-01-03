@@ -51,7 +51,7 @@ class App extends Component {
         this.setState({
           books: [...this.state.books, res.data],
         });
-        console.log('666 books ', this.state.ßbooks);
+        console.log('666 books ', this.state.books);
       });
   };
 
