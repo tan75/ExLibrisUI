@@ -50,7 +50,7 @@ class App extends Component {
         this.setState({
           books: [...this.state.books, res.data],
         });
-        window.location.href = '/';
+        window.location.href = '/'; // redirect to '/' once book is added
       });
   };
 
