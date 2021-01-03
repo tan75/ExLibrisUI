@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import { Button, Form, Container } from 'react-bootstrap';
 import PropTypes from 'prop-types';
 
@@ -9,18 +8,6 @@ export default class AddBook extends Component {
     imageUrl: '',
     pages: '',
     description: '',
-    redirect: false,
-  };
-
-  setRedirect = () => {
-    this.setState({
-      redirect: true,
-    });
-  };
-
-  renderRedirect = () => {
-    if (this.state.redirect) return <Redirect to="/" />;
-    return null;
   };
 
   onChange = (e) => {
@@ -82,13 +69,8 @@ export default class AddBook extends Component {
               onChange={this.onChange}
             />
           </Form.Group>
-          {this.renderRedirect()}
-          <Button
-            variant="primary"
-            type="submit"
-            value="Submit"
-            onClick={this.setRedirect}
-          >
+
+          <Button variant="primary" type="submit" value="Submit">
             Submit
           </Button>
         </Form>
