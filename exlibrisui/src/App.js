@@ -63,7 +63,7 @@ class App extends Component {
           <Route
             exact
             path="/"
-            render={(props) => (
+            render={() => (
               <React.Fragment>
                 <Jumbotron>
                   <Row>
