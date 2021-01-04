@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { Component } from 'react';
+import { Container, Jumbotron } from 'react-bootstrap';
 
 export default class Report extends Component {
   state = {
@@ -14,6 +15,13 @@ export default class Report extends Component {
 
   render() {
     const { report } = this.state;
-    return <h1>{report.reportBooks}</h1>;
+    return (
+      <Container className="p-3">
+        <Jumbotron>
+          <h4>Total Pages</h4>
+          <p>{report.reportBooks}</p>
+        </Jumbotron>
+      </Container>
+    );
   }
 }
