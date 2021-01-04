@@ -8,17 +8,12 @@ export default class Report extends Component {
 
   componentDidMount() {
     axios.get('http://localhost:8000/api/report').then((res) => {
-      this.setState({ report: res.data.reportBooks });
-      console.log(res.data);
+      this.setState({ report: res.data });
     });
   }
 
   render() {
-    console.log(this.state.report);
-    return (
-      <div>
-        <h1>rr</h1>
-      </div>
-    );
+    const { report } = this.state;
+    return <h1>{report.reportBooks}</h1>;
   }
 }
