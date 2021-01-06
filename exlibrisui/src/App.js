@@ -34,9 +34,19 @@ class App extends Component {
   };
 
   deleteBook = (id) => {
-    this.setState({
-      books: [...this.state.books.filter((book) => book.id !== id)],
-    });
+    axios
+      .post(
+        `${baseUrl}/api/admin/delete-book/`,
+        { bookId: id },
+        {
+          header: 'Content-Type: application/json',
+        }
+      )
+      .then(() => {
+        this.setState({
+          books: [...this.state.books.filter((book) => book._id !== id)],
+        });
+      });
   };
 
   addBook = (title, imageUrl, pages, description) => {
