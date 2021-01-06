@@ -2,13 +2,16 @@ import axios from 'axios';
 import React, { Component } from 'react';
 import { Container, Jumbotron } from 'react-bootstrap';
 
+const baseUrl = `http://localhost:8000`;
+// const baseUrl = `https://gobananas.work`;
+
 export default class Report extends Component {
   state = {
     report: {},
   };
 
   componentDidMount() {
-    axios.get('http://localhost:8000/api/report').then((res) => {
+    axios.get(`${baseUrl}/api/report`).then((res) => {
       this.setState({ report: res.data });
     });
   }
