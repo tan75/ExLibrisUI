@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class BookItem extends Component {
   render() {
     const { book, addToReport, deleteBook } = this.props;
-    const { id, pages, title, imageUrl, description } = book;
+    const { _id, pages, title, imageUrl, description } = book;
     return (
       <Col>
         <Card style={{ width: '18rem' }}>
@@ -21,7 +21,7 @@ class BookItem extends Component {
               variant="primary"
               type="submit"
               href="#"
-              onClick={addToReport.bind(this, id)}
+              onClick={addToReport.bind(this, _id)}
             >
               Add To Report
             </Button>
@@ -29,7 +29,7 @@ class BookItem extends Component {
             <Button
               variant="danger"
               type="submit"
-              onClick={deleteBook.bind(this, id)}
+              onClick={deleteBook.bind(this, _id)}
             >
               Delete
             </Button>
