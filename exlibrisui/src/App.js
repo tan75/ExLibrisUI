@@ -23,13 +23,16 @@ class App extends Component {
   }
 
   addToReport = (id) => {
-    this.setState({
-      books: this.state.books.map((book) => {
-        if (book.id === id) {
-          book.addedToReport = !book.addedToReport;
-        }
-        return book;
-      }),
+    axios.post(`${baseUrl}/api/report`, { bookId: id }).then(() => {
+      this.setState({
+        books: this.state.books.map((book) => {
+          if (book.id === id) {
+            book.addedToReport = !book.addedToReport;
+          }
+          return book;
+        }),
+      });
+      window.location.href = '/report'; // redirect to '/report' once book is added to the report
     });
   };
 
