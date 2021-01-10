@@ -8,7 +8,7 @@ class BookItem extends Component {
     const { _id, pages, title, imageUrl, description } = book;
     return (
       <Col>
-        <Card style={{ width: '18rem' }}>
+        <Card>
           <Card.Img variant="top" src={imageUrl} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>

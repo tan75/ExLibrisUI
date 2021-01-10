@@ -72,7 +72,7 @@ class App extends Component {
     const { books } = this.state;
     return (
       <Router>
-        <Container className="p-3">
+        <Container className="p-3" fluid>
           <Header />
           <Route
             exact
@@ -80,7 +80,7 @@ class App extends Component {
             render={() => (
               <React.Fragment>
                 <Jumbotron>
-                  <Row>
+                  <Row xs={1} sm={2} md={2} lg={3} xl={4}>
                     <Books
                       books={books}
                       addToReport={this.addToReport}
