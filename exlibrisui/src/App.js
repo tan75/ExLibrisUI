@@ -6,7 +6,7 @@ import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AboutPage from './pages/About';
 import AddBookPage from './pages/AddBook';
-import Report from './pages/Report';
+import Report from './components/report/Report';
 
 const baseUrl = `http://localhost:8000`; // For Dev
 // const baseUrl = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
@@ -86,6 +86,9 @@ class App extends Component {
                       addToReport={this.addToReport}
                       deleteBook={this.deleteBook}
                     />
+                  </Row>
+                  <Row>
+                    <Report />
                   </Row>
                 </Jumbotron>
               </React.Fragment>
