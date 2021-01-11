@@ -102,7 +102,6 @@ class App extends Component {
               <AddBookPage {...props} books={books} addBook={this.addBook} />
             )}
           />
-          <Route exact path="/report" render={() => <Report />} />
         </Container>
       </Router>
     );

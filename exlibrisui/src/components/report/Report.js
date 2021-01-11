@@ -21,7 +21,7 @@ export default class Report extends Component {
     return (
       <Container className="p-3">
         <Jumbotron>
-          <h4>Total Pages</h4>
+          <h4>Total Pages Finished</h4>
           <p>{report.reportBooks}</p>
         </Jumbotron>
       </Container>
