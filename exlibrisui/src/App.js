@@ -73,7 +73,7 @@ class App extends Component {
     return (
       <Router>
         <Container className="p-3" fluid>
-          <Header />
+          <Header books={books} />
           <Route
             exact
             path="/"
