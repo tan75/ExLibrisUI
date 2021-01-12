@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Jumbotron, Row } from 'react-bootstrap';
+import { Container, Jumbotron, Row, Form, FormControl } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/layout/Header';
@@ -14,6 +14,7 @@ const baseUrl = `http://localhost:8000`; // For Dev
 class App extends Component {
   state = {
     books: [],
+    inputValue: '',
   };
 
   componentDidMount() {
@@ -68,30 +69,55 @@ class App extends Component {
       });
   };
 
+  booksFilterOnChange = (e) => {
+    this.setState({
+      inputValue: e.target.value,
+    });
+  };
+
   render() {
+    const filteredBooks = this.state.books.filter((book) => {
+      return book.title
+        .toLowerCase()
+        .includes(this.state.inputValue.toLowerCase());
+    });
+
     const { books } = this.state;
     return (
       <Router>
         <Container className="p-3" fluid>
-          <Header books={books} />
+          <Header booksFilterOnChange={this.booksFilterOnChange} />
           <Route
             exact
             path="/"
             render={() => (
-              <React.Fragment>
-                <Jumbotron>
-                  <Row xs={1} sm={2} md={2} lg={3} xl={4}>
-                    <Books
-                      books={books}
-                      addToReport={this.addToReport}
-                      deleteBook={this.deleteBook}
+              <Container className="p-3" fluid>
+                <Form inline>
+                  <br />
+                  <Form.Group>
+                    <Form.Control
+                      type="text"
+                      placeholder="Search"
+                      className="mr-sm-2"
+                      onChange={this.booksFilterOnChange}
                     />
-                  </Row>
-                  <Row>
-                    <Report />
-                  </Row>
-                </Jumbotron>
-              </React.Fragment>
+                  </Form.Group>
+                </Form>
+                <React.Fragment>
+                  <Jumbotron>
+                    <Row xs={1} sm={2} md={2} lg={3} xl={4}>
+                      <Books
+                        books={filteredBooks}
+                        addToReport={this.addToReport}
+                        deleteBook={this.deleteBook}
+                      />
+                    </Row>
+                    <Row>
+                      <Report />
+                    </Row>
+                  </Jumbotron>
+                </React.Fragment>
+              </Container>
             )}
           />
           <Route exact path="/about" component={AboutPage} />
