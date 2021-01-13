@@ -77,6 +77,7 @@ class App extends Component {
 
   render() {
     const filteredBooks = this.state.books.filter((book) => {
+      console.log('111 ', book);
       return book.title
         .toLowerCase()
         .includes(this.state.inputValue.toLowerCase());
