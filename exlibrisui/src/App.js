@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Jumbotron, Row, Form, FormControl } from 'react-bootstrap';
+import { Container, Jumbotron, Row, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
 import Header from './components/layout/Header';
@@ -63,7 +63,7 @@ class App extends Component {
       })
       .then((res) => {
         this.setState({
-          books: [...this.state.books, res.data],
+          books: [...this.state.books, res.data.book],
         });
         window.location.href = '/'; // redirect to '/' once book is added
       });
@@ -77,7 +77,6 @@ class App extends Component {
 
   render() {
     const filteredBooks = this.state.books.filter((book) => {
-      console.log(111, this.state.inputValue, book);
       return book.title
         .toLowerCase()
         .includes(this.state.inputValue.toLowerCase());
