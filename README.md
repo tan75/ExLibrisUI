@@ -1,2 +1,7 @@
 # ExLibrisUI
- Front End for ExLibris
+
+Front End for ExLibris
+
+## Stack
+
+ReactJS
