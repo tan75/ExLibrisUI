@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { Container, Jumbotron, Row, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from './components/layout/Header';
 import Books from './components/books/Books';
 import AboutPage from './pages/About';
@@ -107,7 +109,8 @@ class App extends Component {
                   <Jumbotron>
                     <Row xs={1} sm={2} md={2} lg={3} xl={4}>
                       <Books
-                        books={filteredBooks}
+                        /* books={filteredBooks} */
+                        books={this.props.bks}
                         addToReport={this.addToReport}
                         deleteBook={this.deleteBook}
                       />
@@ -134,4 +137,14 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    bks: state.books,
+  };
+};
+
+App.propTypes = {
+  bks: PropTypes.array.isRequired,
+};
+
+export default connect(mapStateToProps)(App);
