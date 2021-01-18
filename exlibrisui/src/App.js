@@ -14,10 +14,10 @@ const baseUrl = `http://localhost:8000`; // For Dev
 // const baseUrl = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
 
 class App extends Component {
-  // state = {
-  //   books: [],
-  //   inputValue: '',
-  // };
+  state = {
+    books: [],
+    inputValue: '',
+  };
 
   componentDidMount() {
     axios.get(`${baseUrl}/api/books/`).then((res) => {
@@ -71,20 +71,20 @@ class App extends Component {
       });
   };
 
-  // booksFilterOnChange = (e) => {
-  //   this.setState({
-  //     inputValue: e.target.value,
-  //   });
-  // };
+  booksFilterOnChange = (e) => {
+    this.setState({
+      inputValue: e.target.value,
+    });
+  };
 
   render() {
-    // const filteredBooks = this.state.books.filter((book) => {
-    //   return book.title
-    //     .toLowerCase()
-    //     .includes(this.state.inputValue.toLowerCase());
-    // });
+    const filteredBooks = this.state.books.filter((book) => {
+      return book.title
+        .toLowerCase()
+        .includes(this.state.inputValue.toLowerCase());
+    });
 
-    // const { books } = this.state;
+    const { books } = this.state;
     return (
       <Router>
         <Container className="p-3" fluid>
@@ -128,11 +128,7 @@ class App extends Component {
             exact
             path="/add-book"
             render={(props) => (
-              <AddBookPage
-                {...props}
-                books={this.props.bks}
-                addBook={this.addBook}
-              />
+              <AddBookPage {...props} books={books} addBook={this.addBook} />
             )}
           />
         </Container>
