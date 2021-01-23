@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { Container, Jumbotron, Row, Form } from 'react-bootstrap';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import axios from 'axios';
@@ -12,10 +13,10 @@ const baseUrl = `http://localhost:8000`; // For Dev
 // const baseUrl = `https://gobananas.work`; // For Prod https://gobananas.work/api/books
 
 class App extends Component {
-  state = {
-    books: [],
-    inputValue: '',
-  };
+  // state = {
+  //   books: [],
+  //   inputValue: '',
+  // };
 
   // componentDidMount() {
   //   axios.get(`${baseUrl}/api/books/`).then((res) => {
@@ -71,18 +72,19 @@ class App extends Component {
 
   booksFilterOnChange = (e) => {
     this.setState({
-      inputValue: e.target.value,
+      // inputValue: e.target.value,
     });
   };
 
   render() {
-    const filteredBooks = this.state.books.filter((book) => {
-      return book.title
-        .toLowerCase()
-        .includes(this.state.inputValue.toLowerCase());
-    });
+    // const filteredBooks = this.state.books.filter((book) => {
+    //   return book.title
+    //     .toLowerCase()
+    //     .includes(this.state.inputValue.toLowerCase());
+    // });
 
-    const { books } = this.state;
+    // const { books } = this.props;
+
     return (
       <Router>
         <Container className="p-3" fluid>
@@ -107,7 +109,7 @@ class App extends Component {
                   <Jumbotron>
                     <Row xs={1} sm={2} md={2} lg={3} xl={4}>
                       <Books
-                        books={filteredBooks}
+                        // books={books}
                         addToReport={this.addToReport}
                         deleteBook={this.deleteBook}
                       />
@@ -125,7 +127,11 @@ class App extends Component {
             exact
             path="/add-book"
             render={(props) => (
-              <AddBookPage {...props} books={books} addBook={this.addBook} />
+              <AddBookPage
+                {...props}
+                /* books={books} */
+                addBook={this.addBook}
+              />
             )}
           />
         </Container>
@@ -133,5 +139,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  books: PropTypes.array.isRequired,
+};
 
 export default App;

@@ -19,7 +19,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         books: action.payload,
-        inputValue: action.payload.inputValue,
+        inputValue: '',
       };
     default:
       return state;
