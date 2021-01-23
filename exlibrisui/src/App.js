@@ -17,11 +17,11 @@ class App extends Component {
     inputValue: '',
   };
 
-  componentDidMount() {
-    axios.get(`${baseUrl}/api/books/`).then((res) => {
-      this.setState({ books: res.data.books });
-    });
-  }
+  // componentDidMount() {
+  //   axios.get(`${baseUrl}/api/books/`).then((res) => {
+  //     this.setState({ books: res.data.books });
+  //   });
+  // }
 
   addToReport = (id) => {
     axios.post(`${baseUrl}/api/report`, { bookId: id }).then(() => {
