@@ -10,12 +10,11 @@ class Books extends Component {
   }
 
   render() {
-    // this.props.getBooks();
-    const { books, addToReport, deleteBook } = this.props.books;
+    const { books, addToReport, deleteBook } = this.props;
     console.log('556 this.props => ', this.props);
     console.log('557 books => ', typeof books, ' ', JSON.stringify(books));
     const updBooks = books.books;
-    return books.map((book) => (
+    return updBooks.map((book) => (
       <BookItem
         key={book._id}
         book={book}

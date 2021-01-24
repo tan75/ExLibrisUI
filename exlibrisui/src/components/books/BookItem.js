@@ -22,7 +22,7 @@ class BookItem extends Component {
                 variant="primary"
                 type="submit"
                 href="#"
-                /* onClick={addToReport.bind(this, _id)} */
+                onClick={addToReport.bind(this, _id)}
               >
                 Add To Report
               </Button>
@@ -30,7 +30,7 @@ class BookItem extends Component {
               <Button
                 variant="danger"
                 type="submit"
-                /* onClick={deleteBook.bind(this, _id)} */
+                onClick={deleteBook.bind(this, _id)}
               >
                 Delete
               </Button>

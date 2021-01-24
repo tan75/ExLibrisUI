@@ -4,7 +4,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
-const initialState = {};
+const initialState = {
+  books: [],
+  inputValue: '',
+};
 
 const middleware = [thunk];
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
