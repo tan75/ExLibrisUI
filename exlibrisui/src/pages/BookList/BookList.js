@@ -8,20 +8,28 @@ const BookList = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       const data = await listBooks();
-      setBooks(data);
+      //console.log(222, data.books);
+      setBooks(data.books);
     };
     fetchBooks();
   }, []);
 
+  console.log(333, books);
+
   const renderBooks = () =>
     books.map((book) => {
-      return <div>book</div>;
+      const { _id } = book;
+      return (
+        <div>
+          <h1>{_id}</h1>
+        </div>
+      );
     });
 
   return (
     <>
       <h1>BookList</h1>
-      <div>{renderBooks}</div>
+      <div>{renderBooks()}</div>
     </>
   );
 };
