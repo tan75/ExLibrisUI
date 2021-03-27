@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Table from 'react-bootstrap/Table';
+import { ROUTE_BOOKS } from '../../constants';
 
 import { listBooks } from '../../services/Books';
 
@@ -8,21 +11,21 @@ const BookList = () => {
   useEffect(() => {
     const fetchBooks = async () => {
       const data = await listBooks();
-      //console.log(222, data.books);
       setBooks(data.books);
     };
     fetchBooks();
   }, []);
 
-  console.log(333, books);
-
   const renderBooks = () =>
     books.map((book) => {
-      const { _id } = book;
+      const { _id, title, pages, description } = book;
+
       return (
-        <div>
-          <h1>{_id}</h1>
-        </div>
+        <tr key={_id}>
+          <td>
+            <Link to={`${ROUTE_BOOKS}/${_id}`}>{title}</Link>
+          </td>
+        </tr>
       );
     });
 
