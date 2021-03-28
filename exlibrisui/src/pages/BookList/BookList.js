@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Table from 'react-bootstrap/Table';
-import { ROUTE_BOOKS } from '../../constants';
+import { Table } from 'react-bootstrap';
+import { ROUTE_BOOKS, ROUTE_ADD_BOOK } from '../../constants';
 
 import { listBooks } from '../../services/Books';
 
@@ -25,14 +25,29 @@ const BookList = () => {
           <td>
             <Link to={`${ROUTE_BOOKS}/${_id}`}>{title}</Link>
           </td>
+          <td>{pages || '-'}</td>
+          <td>{description || '-'}</td>
         </tr>
       );
     });
 
   return (
     <>
-      <h1>BookList</h1>
-      <div>{renderBooks()}</div>
+      <div className="BookList">
+        <Link className="d-block mb-3" to={ROUTE_ADD_BOOK}>
+          Add Book
+        </Link>
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Pages</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>{renderBooks()}</tbody>
+        </Table>
+      </div>
     </>
   );
 };
