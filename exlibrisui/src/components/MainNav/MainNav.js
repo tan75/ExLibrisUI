@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav } from 'react-bootstrap';
+import Paragraph from './Paragraph';
 
-import { ROUTE_ABOUT, ROUTE_HOME, ROUTE_REPORT } from '../constants';
+import { ROUTE_ABOUT, ROUTE_HOME, ROUTE_REPORT } from '../../constants';
 
 const MainNav = () => {
   return (
     <div className="MainNav">
+      <Paragraph />
       <Navbar bg="light" expand="lg" variant="light">
         <Navbar.Brand as={Link} to={ROUTE_HOME}>
           {' '}
