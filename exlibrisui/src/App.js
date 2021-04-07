@@ -1,14 +1,11 @@
 import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import MainNav from './components/MainNav/MainNav';
-import MainContent from './components/MainContent/MainContent';
+import Header from './components/Header';
 
 const App = () => {
   return (
-    <BrowserRouter>
-      <MainNav />
-      <MainContent />
-    </BrowserRouter>
+    <div className="container">
+      <Header title="Books List" />
+    </div>
   );
 };
 
