@@ -6,9 +6,9 @@ const App = () => {
   const [books, setBooks] = useState([]);
 
   const fetchBooks = async () => {
-    const data = await listBooks();
-    // const res = await fetch('http://localhost:8001/books');
-    // const data = await res.json();
+    // const data = await listBooks();
+    const res = await fetch('http://localhost:8000/api/books');
+    const data = await res.json();
     console.log(111, data);
     return data;
   };
