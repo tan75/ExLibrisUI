@@ -2,11 +2,11 @@ import { React } from 'react';
 import PropTypes from 'prop-types';
 import Book from './Book';
 
-const Books = ({ books }) => {
+const Books = ({ books, onDelete }) => {
   return (
     <>
       {books.map((book) => (
-        <Book key={book._id} book={book} />
+        <Book key={book._id} book={book} onDelete={onDelete} />
       ))}
     </>
   );
@@ -14,6 +14,7 @@ const Books = ({ books }) => {
 
 Books.propTypes = {
   books: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Books;

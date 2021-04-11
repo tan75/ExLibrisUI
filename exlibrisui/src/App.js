@@ -18,10 +18,19 @@ const App = () => {
     },
   ]);
 
+  // Delete Book
+  const deleteBook = (id) => {
+    setBooks(books.filter((book) => book._id !== id));
+  };
+
   return (
     <div className="container">
       <Header title="Books List" />
-      <Books books={books} />
+      {books.length > 0 ? (
+        <Books books={books} onDelete={deleteBook} />
+      ) : (
+        'No Books Added'
+      )}
     </div>
   );
 };

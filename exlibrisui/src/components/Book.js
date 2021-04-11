@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes, { object } from 'prop-types';
 
-const Book = ({ book }) => {
+const Book = ({ book, onDelete }) => {
   return (
-    <div>
+    <div role="button" onMouseDown={() => onDelete(book._id)} tabIndex={-1}>
       <p>{book._id}</p>
     </div>
   );
 };
 
 Book.propTypes = {
-  book: object.isRequired,
+  book: PropTypes.object.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Book;
