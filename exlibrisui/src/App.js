@@ -23,11 +23,20 @@ const App = () => {
     setBooks(books.filter((book) => book._id !== id));
   };
 
+  // Toggle Finished
+  const toggleFinished = (id) => {
+    console.log(id);
+  };
+
   return (
     <div className="container">
       <Header title="Books List" />
       {books.length > 0 ? (
-        <Books books={books} onDelete={deleteBook} />
+        <Books
+          books={books}
+          onDelete={deleteBook}
+          toggleFinished={toggleFinished}
+        />
       ) : (
         'No Books Added'
       )}
