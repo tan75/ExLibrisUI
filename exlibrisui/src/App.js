@@ -1,4 +1,5 @@
 import { React, useState } from 'react';
+import { Container } from 'react-bootstrap';
 import Header from './components/Header';
 import Books from './components/Books';
 
@@ -29,7 +30,7 @@ const App = () => {
   };
 
   return (
-    <div className="container">
+    <Container fluid>
       <Header title="Books List" />
       {books.length > 0 ? (
         <Books
@@ -40,7 +41,7 @@ const App = () => {
       ) : (
         'No Books Added'
       )}
-    </div>
+    </Container>
   );
 };
 
